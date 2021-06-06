@@ -7,23 +7,12 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <field name="category_id" position="after">
-                <field name="credit_limit" widget="monetary"/>
-                <field name="amount_available" widget="monetary"/>
                 <field name="total_receivable" widget="monetary"/>
                 <field name="total_payable" widget="monetary"/>
-                <field name="balance" widget="monetary"/>
+                <field name="partner_balance" widget="monetary"/>
+                <field name="credit_limit" widget="monetary"/>
+                <field name="amount_available" widget="monetary"/>
             </field>
         </field>
     </record>
-
-<!--    <record id="tree_view_inherited" model="ir.ui.view">-->
-<!--        <field name="name">sale.tree.view.inherited</field>-->
-<!--        <field name="model">sale.order</field>-->
-<!--        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <field name="activity_ids" position="after">-->
-<!--                <field name="sale_description"/>-->
-<!--            </field>-->
-<!--        </field>-->
-<!--    </record>-->
 </odoo>

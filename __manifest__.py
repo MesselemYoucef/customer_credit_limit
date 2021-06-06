@@ -10,10 +10,12 @@
     'Licence': 'LGPL-3',
     'images': [],
     'depends': [
-        'base'
+        'base',
+        'sale'
     ],
     'data': [
         'views/res_partner.xml',
+        'views/sale_credit_limit.xml'
     ],
     'demo': [],
     'qweb': [],

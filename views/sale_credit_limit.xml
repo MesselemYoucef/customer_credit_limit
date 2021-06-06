@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_credit_limit_for_inherited" model="ir.ui.view">
+        <field name="name">view.sale.credit.limit.form.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="total_receivable" widget="monetary"/>
+                <field name="total_payable" widget="monetary"/>
+            </field>
+        </field>
+    </record>
+</odoo>

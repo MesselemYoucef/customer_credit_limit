@@ -7,15 +7,22 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     credit_limit = fields.Float(string="Credit Limit")
-    amount_available = fields.Float(string="Amount Available")
-    total_receivable = fields.Float(string="Total Receivable", stored="False", compute="_compute_try_to_upgrade")
+    amount_available = fields.Float(string="Amount Available", compute="_compute_amount_available")
+    total_receivable = fields.Float(string="Total Receivable", compute="_compute_total_receivable")
+    total_payable = fields.Float(string="Total Payable", compute="_compute_total_payable")
+    partner_balance = fields.Float(string="Balance", compute="_compute_partner_balance")
 
-    total_payable = fields.Float(string="Total Payable")
-    balance = fields.Float(string="Balance")
+    def _compute_total_payable(self):
+        self.total_payable = self.debit
 
-    @api.depends("balance", "name")
-    def _compute_try_to_upgrade(self):
-        self.total_receivable = self.balance
-        print(self.balance)
-        print("name --------->", self.name)
+    def _compute_total_receivable(self):
+        self.total_receivable = self.credit
+
+    def _compute_partner_balance(self):
+        self.partner_balance = self.credit - self.debit
+
+    def _compute_amount_available(self):
+        self.amount_available = self.credit_limit - self.partner_balance
+
+
 
