@@ -6,8 +6,11 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
+                <field name="credit_limit" widget="monetary"/>
+                <field name="amount_available" widget="monetary"/>
                 <field name="total_receivable" widget="monetary"/>
                 <field name="total_payable" widget="monetary"/>
+                <field name="partner_balance" widget="monetary"/>
             </field>
         </field>
     </record>
