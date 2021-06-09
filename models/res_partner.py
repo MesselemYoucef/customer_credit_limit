@@ -11,6 +11,7 @@ class ResPartner(models.Model):
     total_receivable = fields.Float(string="Total Receivable", compute="_compute_total_receivable")
     total_payable = fields.Float(string="Total Payable", compute="_compute_total_payable")
     partner_balance = fields.Float(string="Balance", compute="_compute_partner_balance")
+    allow_over_credit = fields.Boolean(string="Allow Over Credit")
 
     def _compute_total_payable(self):
         self.total_payable = self.debit
